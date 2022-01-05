@@ -36,5 +36,21 @@ class CollectionsIntroductionTests {
 		assertArrayEquals(new Integer[] {20,-30}, sublist.toArray(new Integer[2]));
 		
 	}
+	@Test 
+	void subSetTest() {
+		TreeSet<Integer> treeSet = new TreeSet<>(Arrays.asList(10,20,30,40,50));
+		assertNull(treeSet.floor(5));
+		assertEquals(10, treeSet.floor(15));
+		assertNull(treeSet.ceiling(60));
+		assertEquals(50, treeSet.ceiling(45));
+		assertEquals(treeSet.floor(30), treeSet.ceiling(30));
+		treeSet.subSet(20, true, 40, true).clear();
+		assertArrayEquals(new Integer[] {10, 50}, treeSet.toArray(new Integer[0]));
+		//use case of the HW #27
+		Collection<Integer> treeCollection = new TreeSet<>(Arrays.asList(10,20,30,40,50));
+		((TreeSet<Integer>)treeCollection).subSet(20, 40).clear();
+		assertArrayEquals(new Integer[] {10, 40, 50}, treeCollection.toArray(new Integer[0]));
+		
+	}
 
 }

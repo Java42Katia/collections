@@ -79,7 +79,7 @@ Integer elements[] = {
 			myStack.pop();
 		}
 	}
-	//@Test
+	//@Test as the example of comparing O[N] with O[1]
 	void getMaxStandard() {
 		Stack<Integer> stack = new Stack<>();
 		for (int i = 0; i < N_NUMBERS; i++) {
