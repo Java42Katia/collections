@@ -10,6 +10,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class MyStackTests {
+private static final int N_NUMBERS = 100000;
+private static final int N_RUNS = 100000;
 MyStack myStack;
 Stack<Integer> stack;
 Integer elements[] = {
@@ -75,6 +77,26 @@ Integer elements[] = {
 		for(int i = 0; i < nPops; i++) {
 			stack.pop();
 			myStack.pop();
+		}
+	}
+	//@Test
+	void getMaxStandard() {
+		Stack<Integer> stack = new Stack<>();
+		for (int i = 0; i < N_NUMBERS; i++) {
+			stack.push((int)(Math.random() * Integer.MAX_VALUE));
+		}
+		for (int i = 0; i < N_RUNS; i++) {
+			Collections.max(stack);
+		}
+	}
+	@Test
+	void getMaxMyStack() {
+		MyStack stack = new MyStack();
+		for (int i = 0; i < N_NUMBERS; i++) {
+			stack.push((int)(Math.random() * Integer.MAX_VALUE));
+		}
+		for (int i = 0; i < N_RUNS; i++) {
+			stack.max();
 		}
 	}
 
